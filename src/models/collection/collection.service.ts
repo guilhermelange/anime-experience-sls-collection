@@ -3,7 +3,7 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { PrismaService, Top } from 'src/common/database';
+import { PrismaService, Top } from '../../common/database';
 
 @Injectable()
 export class CollectionService {

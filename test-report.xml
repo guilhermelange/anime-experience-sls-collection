@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="C:\Users\guilu\OneDrive\Área de Trabalho\anex-project\anex-collection\src\models\collection\collection.service.spec.ts">
+    <testCase name="CollectionService should be defined" duration="300"/>
+  </file>
+  <file path="C:\Users\guilu\OneDrive\Área de Trabalho\anex-project\anex-collection\src\models\collection\collection.controller.spec.ts">
+    <testCase name="CollectionController should be defined" duration="234"/>
+  </file>
+</testExecutions>
