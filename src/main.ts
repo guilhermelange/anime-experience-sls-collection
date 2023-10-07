@@ -15,7 +15,7 @@ async function bootstrap(): Promise<Handler> {
 
   if (isHml) {
     const config = new DocumentBuilder()
-      .setTitle('Anex - Users')
+      .setTitle('Anex - Collection')
       .setVersion('1.0')
       .build();
     const document = SwaggerModule.createDocument(app, config);
