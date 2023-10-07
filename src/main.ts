@@ -15,7 +15,11 @@ async function bootstrap(): Promise<Handler> {
 
   if (isHml) {
     const config = new DocumentBuilder()
+      .addBearerAuth()
       .setTitle('Anex - Collection')
+      .setDescription(
+        'Documentação dos serviços relacionados a API de Collections do Anime Experience',
+      )
       .setVersion('1.0')
       .build();
     const document = SwaggerModule.createDocument(app, config);
