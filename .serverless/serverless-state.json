@@ -7,15 +7,15 @@
     "provider": {
       "name": "aws",
       "runtime": "nodejs14.x",
-      "stage": "prod",
       "apiGateway": {
-        "restApiId": "gxovi0wer4",
-        "restApiRootResourceId": "ch0rgoes3f"
+        "restApiId": "uupn0m2nb4",
+        "restApiRootResourceId": "1skt6n60u2"
       },
+      "stage": "dev",
       "region": "us-east-1",
       "versionFunctions": true,
       "environment": {
-        "DATABASE_URL": "postgresql://doadmin:AVNS_HLrW0ufM-oE10mMa2Xz@db-postgresql-nyc3-38883-do-user-14745123-0.b.db.ondigitalocean.com:25060/anex?sslmode=require"
+        "DATABASE_URL": "postgresql://doadmin:AVNS_akwrMlD8tUOUQW5DG4E@anex-db-do-user-15099907-0.c.db.ondigitalocean.com:25060/anex?sslmode=require"
       },
       "compiledCloudFormationTemplate": {
         "AWSTemplateFormatVersion": "2010-09-09",
@@ -93,7 +93,7 @@
           "MainLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/prod-anex-collection-main"
+              "LogGroupName": "/aws/lambda/anex-collection-main"
             }
           },
           "IamRoleLambdaExecution": {
@@ -122,7 +122,7 @@
                       "-",
                       [
                         "anex-collection",
-                        "prod",
+                        "dev",
                         "lambda"
                       ]
                     ]
@@ -139,7 +139,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/prod-anex-collection-main:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/anex-collection-main:*"
                           }
                         ]
                       },
@@ -150,7 +150,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/prod-anex-collection-main:*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/anex-collection-main:*:*"
                           }
                         ]
                       }
@@ -164,7 +164,7 @@
                   "-",
                   [
                     "anex-collection",
-                    "prod",
+                    "dev",
                     {
                       "Ref": "AWS::Region"
                     },
@@ -181,16 +181,16 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/anex-collection/prod/1696610909074-2023-10-06T16:48:29.074Z/main.zip"
+                "S3Key": "serverless/anex-collection/dev/1699827265228-2023-11-12T22:14:25.228Z/main.zip"
               },
-              "Handler": "_optimize/prod-anex-collection-main/dist/main.handler",
+              "Handler": "_optimize/anex-collection-main/dist/main.handler",
               "Runtime": "nodejs14.x",
-              "FunctionName": "prod-anex-collection-main",
+              "FunctionName": "anex-collection-main",
               "MemorySize": 1024,
               "Timeout": 6,
               "Environment": {
                 "Variables": {
-                  "DATABASE_URL": "postgresql://doadmin:AVNS_HLrW0ufM-oE10mMa2Xz@db-postgresql-nyc3-38883-do-user-14745123-0.b.db.ondigitalocean.com:25060/anex?sslmode=require"
+                  "DATABASE_URL": "postgresql://doadmin:AVNS_akwrMlD8tUOUQW5DG4E@anex-db-do-user-15099907-0.c.db.ondigitalocean.com:25060/anex?sslmode=require"
                 }
               },
               "Role": {
@@ -204,22 +204,22 @@
               "MainLogGroup"
             ]
           },
-          "MainLambdaVersionc9o8g6wa1HJIvw1XKW5MzVA5x8RXLAfJRX620qXS0": {
+          "MainLambdaVersionagCAAwexdrghKX9VfyzToZqQGU2tg4tIUQf2oRec2Jo": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "MainLambdaFunction"
               },
-              "CodeSha256": "PWA7AgrPY53hj+UiVwMUfWhAemKw4JotPA1Ju45ZD7M="
+              "CodeSha256": "IhbRzPZ7MvyVPLpbzaY8/x7P+83a2MrTq0B6xwKcgbU="
             }
           },
           "ApiGatewayResourceProxyVar": {
             "Type": "AWS::ApiGateway::Resource",
             "Properties": {
-              "ParentId": "ch0rgoes3f",
+              "ParentId": "1skt6n60u2",
               "PathPart": "{proxy+}",
-              "RestApiId": "gxovi0wer4"
+              "RestApiId": "uupn0m2nb4"
             }
           },
           "ApiGatewayMethodOptions": {
@@ -259,8 +259,8 @@
                   }
                 ]
               },
-              "ResourceId": "ch0rgoes3f",
-              "RestApiId": "gxovi0wer4"
+              "ResourceId": "1skt6n60u2",
+              "RestApiId": "uupn0m2nb4"
             }
           },
           "ApiGatewayMethodProxyVarOptions": {
@@ -303,7 +303,7 @@
               "ResourceId": {
                 "Ref": "ApiGatewayResourceProxyVar"
               },
-              "RestApiId": "gxovi0wer4"
+              "RestApiId": "uupn0m2nb4"
             }
           },
           "ApiGatewayMethodAny": {
@@ -311,8 +311,8 @@
             "Properties": {
               "HttpMethod": "ANY",
               "RequestParameters": {},
-              "ResourceId": "ch0rgoes3f",
-              "RestApiId": "gxovi0wer4",
+              "ResourceId": "1skt6n60u2",
+              "RestApiId": "uupn0m2nb4",
               "ApiKeyRequired": false,
               "AuthorizationType": "NONE",
               "Integration": {
@@ -356,7 +356,7 @@
               "ResourceId": {
                 "Ref": "ApiGatewayResourceProxyVar"
               },
-              "RestApiId": "gxovi0wer4",
+              "RestApiId": "uupn0m2nb4",
               "ApiKeyRequired": false,
               "AuthorizationType": "NONE",
               "Integration": {
@@ -392,11 +392,11 @@
               "MainLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1696610888792": {
+          "ApiGatewayDeployment1699827233984": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
-              "RestApiId": "gxovi0wer4",
-              "StageName": "prod"
+              "RestApiId": "uupn0m2nb4",
+              "StageName": "dev"
             },
             "DependsOn": [
               "ApiGatewayMethodOptions",
@@ -433,7 +433,7 @@
                       "Ref": "AWS::AccountId"
                     },
                     ":",
-                    "gxovi0wer4",
+                    "uupn0m2nb4",
                     "/*/*"
                   ]
                 ]
@@ -447,16 +447,16 @@
               "Ref": "ServerlessDeploymentBucket"
             },
             "Export": {
-              "Name": "sls-anex-collection-prod-ServerlessDeploymentBucketName"
+              "Name": "sls-anex-collection-dev-ServerlessDeploymentBucketName"
             }
           },
           "MainLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "MainLambdaVersionc9o8g6wa1HJIvw1XKW5MzVA5x8RXLAfJRX620qXS0"
+              "Ref": "MainLambdaVersionagCAAwexdrghKX9VfyzToZqQGU2tg4tIUQf2oRec2Jo"
             },
             "Export": {
-              "Name": "sls-anex-collection-prod-MainLambdaFunctionQualifiedArn"
+              "Name": "sls-anex-collection-dev-MainLambdaFunctionQualifiedArn"
             }
           },
           "ServiceEndpoint": {
@@ -466,7 +466,7 @@
                 "",
                 [
                   "https://",
-                  "gxovi0wer4",
+                  "uupn0m2nb4",
                   ".execute-api.",
                   {
                     "Ref": "AWS::Region"
@@ -475,12 +475,12 @@
                   {
                     "Ref": "AWS::URLSuffix"
                   },
-                  "/prod"
+                  "/dev"
                 ]
               ]
             },
             "Export": {
-              "Name": "sls-anex-collection-prod-ServiceEndpoint"
+              "Name": "sls-anex-collection-dev-ServiceEndpoint"
             }
           }
         }
@@ -569,6 +569,13 @@
       },
       "vpc": {}
     },
+    "custom": {
+      "optimize": {
+        "includePaths": [
+          "dist/schema.prisma"
+        ]
+      }
+    },
     "plugins": [
       "serverless-plugin-optimize",
       "serverless-offline",
@@ -577,8 +584,8 @@
     "pluginsData": {},
     "functions": {
       "main": {
-        "name": "prod-anex-collection-main",
-        "handler": "_optimize/prod-anex-collection-main/dist/main.handler",
+        "name": "anex-collection-main",
+        "handler": "_optimize/anex-collection-main/dist/main.handler",
         "events": [
           {
             "http": {
@@ -634,7 +641,7 @@
             "**"
           ],
           "include": [
-            "_optimize/prod-anex-collection-main/**"
+            "_optimize/anex-collection-main/**"
           ],
           "artifact": "C:\\Users\\guilu\\OneDrive\\Área de Trabalho\\anex-project\\anex-collection\\.serverless\\main.zip"
         },
@@ -642,11 +649,11 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "MainLambdaVersionc9o8g6wa1HJIvw1XKW5MzVA5x8RXLAfJRX620qXS0"
+        "versionLogicalId": "MainLambdaVersionagCAAwexdrghKX9VfyzToZqQGU2tg4tIUQf2oRec2Jo"
       }
     },
     "configValidationMode": "warn",
-    "serviceFilename": "serverless.prod.yml",
+    "serviceFilename": "serverless.yml",
     "initialServerlessConfig": {
       "service": "anex-collection",
       "plugins": {
@@ -665,8 +672,11 @@
           "!node_modules/prisma/libquery_engine-*",
           "!node_modules/@prisma/engines/**"
         ],
-        "artifactsS3KeyDirname": "serverless/anex-collection/prod/code-artifacts",
-        "artifactDirectoryName": "serverless/anex-collection/prod/1696610909074-2023-10-06T16:48:29.074Z"
+        "artifactsS3KeyDirname": "serverless/anex-collection/dev/code-artifacts",
+        "artifactDirectoryName": "serverless/anex-collection/dev/1699827265228-2023-11-12T22:14:25.228Z"
+      },
+      "custom": {
+        "$ref": "$[\"service\"][\"custom\"]"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -677,7 +687,7 @@
   },
   "package": {
     "individually": true,
-    "artifactDirectoryName": "serverless/anex-collection/prod/1696610909074-2023-10-06T16:48:29.074Z",
+    "artifactDirectoryName": "serverless/anex-collection/dev/1699827265228-2023-11-12T22:14:25.228Z",
     "artifact": ""
   }
 }
