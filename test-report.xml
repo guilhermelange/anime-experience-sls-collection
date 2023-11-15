@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Users\guilu\OneDrive\Área de Trabalho\anex-project\anex-collection\src\models\collection\collection.service.spec.ts">
-    <testCase name="CollectionService should be defined" duration="300"/>
-  </file>
   <file path="C:\Users\guilu\OneDrive\Área de Trabalho\anex-project\anex-collection\src\models\collection\collection.controller.spec.ts">
-    <testCase name="CollectionController should be defined" duration="234"/>
+    <testCase name="CollectionController should be defined" duration="26"/>
+    <testCase name="CollectionController findAll should return an array of collections" duration="7"/>
+    <testCase name="CollectionController findTop should return an array of collections by filter" duration="6"/>
+  </file>
+  <file path="C:\Users\guilu\OneDrive\Área de Trabalho\anex-project\anex-collection\src\models\collection\collection.service.spec.ts">
+    <testCase name="CollectionService should be defined" duration="27"/>
+    <testCase name="CollectionService findAll should return a list of collections" duration="7"/>
+    <testCase name="CollectionService findAll should return a error" duration="11"/>
+    <testCase name="CollectionService findTopCollections should return a error" duration="9"/>
+    <testCase name="CollectionService findTopCollections should return a list of collections by TOP filter" duration="5"/>
   </file>
 </testExecutions>
